@@ -99,9 +99,19 @@ console.log(sTag+numberOfAreas);
 
 // (10) Find the total number of beds in all rooms. Hint: Use the Object.values() function.
 
-var bedRoomOne= Object.values(house.areas.bedroomOne.items).length;
-var bedRoomTwo= Object.values(house.areas.bedroomTwo.items).length-1;
+var livingroom= Object.values(house.areas.livingRoom.items);
+var bedRoomOne= Object.values(house.areas.bedroomOne.items);
+var bedRoomTwo= Object.values(house.areas.bedroomTwo.items);
+
+var filter=[livingroom.filter(filtered).length,
+    bedRoomOne.filter(filtered).length,
+    bedRoomTwo.filter(filtered).length]
+
+function filtered(value){
+    return value==='bed';
+}
+
 var textO="Total beds = ";
-var totalNumberOfBeds = bedRoomOne+bedRoomTwo;
+var totalNumberOfBeds = filter[0]+filter[1]+filter[2];
 
 console.log(textO+totalNumberOfBeds);
